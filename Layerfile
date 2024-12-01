@@ -17,5 +17,5 @@ RUN apt-get update && \
 # copy files from the repository into this staging server
 COPY . .
 RUN docker build -t image .
-RUN docker run -d -p 3000:8080 -v ollama:/root/.ollama -v cur-api:/app/backend/data --name cur-api --restart always zhx47/cursor-api:latest
+RUN docker run -d -p 3000:3000 -v ollama:/root/.ollama -v cur-api:/app/backend/data --name cur-api --restart always zhx47/cursor-api:latest
 EXPOSE WEBSITE http://localhost:3000
