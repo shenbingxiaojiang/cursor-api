@@ -18,5 +18,5 @@ RUN apt-get update && \
 COPY . .
 
 RUN docker build -t image .
-RUN docker run -d --name cursor-api -p 3000:3000 zhx47/cursor-api:latest
+RUN docker run -d -p 3000:3000 -v ollama:/root/.ollama -v cursor-api:/app/backend/data --name open-webui --restart always zhx47/cursor-api:latest
 EXPOSE WEBSITE http://localhost:3000
